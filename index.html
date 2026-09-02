@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jogadores</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/b27e652bdc.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header class="cabecalho">
+      <div class="cabecalho__container">
+        <div class="titulos__cabecalho">
+          <h1>Cadastro de atletas</h1>
+          <h3>Gerenciar e visualizar atletas</h3>
+        </div>
+
+        <div class="cabecalho__gerencia">
+          <button class="adiciona__atleta">
+            <i class="fa-solid fa-plus"></i>NOVO ATLETA
+          </button>
+
+          <div class="modal">
+            <div class="formulario">
+              <div class="cabecalho__form">
+                <h2>NOVO ATLETA</h2>
+                <button class="cancelar">X</button>
+              </div>
+              <form>
+                <div class="container__form">
+                  <div class="nome">
+                    <input type="text" id="nome" placeholder="Nome completo" />
+                  </div>
+                  <div class="posicao">
+                    <input type="text" id="posicao" placeholder="Posição" />
+                  </div>
+                  <div class="idade">
+                    <input type="number" id="idade" placeholder="Idade" />
+                  </div>
+                  <div class="data">
+                    <input
+                      type="date"
+                      id="nascimento"
+                      placeholder="Data Nascimento"
+                    />
+                  </div>
+
+                  <button class="cadastrar">Cadastrar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="container">
+      <div class="cabecalho__secao">
+        <h1>Atletas cadastrados (<span>0</span>)</h1>
+        <input type="text" placeholder="Buscar" />
+      </div>
+
+      <div class="tabela__principal">
+        <table>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Posição</th>
+            <th>Idade</th>
+            <th>Data Nasc.</th>
+            <th>Ações</th>
+          </tr>
+
+          <tbody id="listaJogadores">
+            <tr>
+              <!-- <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td> -->
+              <div class="acoes">
+                <!-- <button class="botao__editar">Editar</button>
+                <button class="botao__deletar">Lixo</button> -->
+              </div>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>

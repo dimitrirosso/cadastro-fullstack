@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+}
+
+.cabecalho {
+  display: flex;
+  justify-content: center;
+  height: 100px;
+  width: 100%;
+  background-color: rgba(38, 61, 138, 0.936);
+}
+
+.cabecalho__container {
+  display: flex;
+  justify-content: space-between;
+  gap: 800px;
+  align-items: center;
+}
+
+.titulos__cabecalho {
+  color: white;
+}
+
+input {
+  padding: 4px;
+}
+
+.adiciona__atleta {
+  padding: 8px;
+  cursor: pointer;
+  background-color: rgb(53, 128, 53);
+  color: white;
+  border: none;
+}
+
+.fa-plus {
+  margin-right: 6px;
+}
+
+.container {
+  width: 93%;
+  background-color: rgb(227, 224, 224);
+  margin: 0 30px;
+  border-radius: 15px;
+}
+
+.cabecalho__secao {
+  display: flex;
+  height: 70px;
+  justify-content: center;
+  gap: 850px;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.cabecalho__secao h1 {
+  font-size: 27px;
+}
+
+.tabela__principal {
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  background-color: rgb(175, 175, 175);
+  width: 85%;
+}
+
+table th {
+  background-color: white;
+  width: 30px;
+  padding: 3px;
+  font-size: 18px;
+}
+
+table td {
+  background-color: white;
+  text-align: center;
+  font-size: 18px;
+  padding: 2px;
+}
+
+.acoes {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.botao__editar,
+.botao__deletar {
+  width: 50px;
+  height: 30px;
+}
+
+.modal {
+  position: absolute;
+  display: none;
+}
+
+.formulario {
+  background-color: rgb(38, 61, 138);
+  display: flex;
+  flex-direction: column;
+  margin: 0 50px 0 0;
+  padding: 15px;
+  gap: 10px;
+  height: 300px;
+}
+
+.cabecalho__form {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+}
+
+.cabecalho__form h2 {
+  font-size: 20px;
+  width: 150px;
+  color: white;
+}
+
+.cabecalho__form button {
+  width: 25px;
+  cursor: pointer;
+}
+
+.container__form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 18px;
+  margin-top: 10px;
+}
+
+.cadastrar {
+  margin-top: 15px;
+  padding: 5px;
+  cursor: pointer;
+}
