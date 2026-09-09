@@ -1,40 +1,3 @@
-// import express from "express";
-
-// const app = express();
-
-// app.use(express.json());
-
-// let resposta = [];
-
-// app.get("/listar", (req, res) => {
-//   res.status(200).json(resposta);
-// });
-
-// app.post("/add", (req, res) => {
-//   resposta.push(req.body);
-//   res.status(201).json({ mensagem: "adicionado!" });
-// });
-
-// app.put("/update/:id", (req, res) => {
-//   let id = Number(req.params.id);
-//   let jogadorID = resposta.findIndex((jogador) => jogador.id == id);
-
-//   resposta[jogadorID] = req.body;
-
-//   res.status(200).json({ mensagem: "Atualizado" });
-// });
-
-// app.delete("/delete/:id", (req, res) => {
-//   let id = Number(req.params.id);
-//   let jogadorID = resposta.findIndex((jogador) => jogador.id == id);
-
-//   resposta.splice(jogadorID, 1);
-
-//   res.status(200).json({ mensagem: "deletado!" });
-// });
-
-// app.listen(3000, () => console.log("rodando pnc..."));
-
 const adiciona = document.querySelector(".adiciona__atleta");
 const modal = document.querySelector(".modal");
 const cancelar = document.querySelector(".cancelar");
@@ -50,10 +13,9 @@ cancelar.addEventListener("click", () => {
   modal.style.display = "none";
 });
 
-let id = 1;
 let contadorAtletas = 0;
 
-cadastrar.addEventListener("click", (event) => {
+cadastrar.addEventListener("click", async (event) => {
   event.preventDefault();
   const tabela = document.querySelector("table");
   const nome = document.getElementById("nome");
@@ -62,10 +24,27 @@ cadastrar.addEventListener("click", (event) => {
   const nascimento = document.getElementById("nascimento");
   let numeroDeAtletas = document.querySelector("span");
 
-  const linha = document.createElement("tr");
+  const atletas = {
+    nome: nome.value,
+    posicao: posicao.value,
+    idade: idade.value,
+    nascimento: nascimento.value,
+  };
 
-  linha.innerHTML = `
-  <td>${id++}</td>
+  try {
+    const resposta = await fetch("http://localhost:3000/cadastrar", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(atletas),
+    });
+
+    const dados = await resposta.json();
+
+    const linha = document.createElement("tr");
+    linha.dataset.id = dados.id;
+
+    linha.innerHTML = `
+  <td>${dados.id}</td>
   <td>${nome.value}</td>
   <td>${posicao.value}</td>
   <td>${idade.value} </td>
@@ -78,15 +57,25 @@ cadastrar.addEventListener("click", (event) => {
     </div>
   </td>
   `;
-  tabela.appendChild(linha);
+    tabela.appendChild(linha);
 
-  contadorAtletas++;
-  numeroDeAtletas.innerHTML = `${contadorAtletas}`;
+    contadorAtletas++;
+    numeroDeAtletas.innerHTML = `${contadorAtletas}`;
+  } catch (erro) {
+    console.log("Erro: ", erro);
+  }
 });
 
-tabela.addEventListener("click", (botao) => {
+tabela.addEventListener("click", async (botao) => {
   if (botao.target.className.includes("botao__deletar")) {
     const linha = botao.target.closest("tr");
+    const id = linha.dataset.id;
+    console.log(id);
+
+    const resposta = await fetch(`http://localhost:3000/deletar/${id}`, {
+      method: "DELETE",
+    });
+
     linha.remove();
 
     let numeroDeAtletas = document.querySelector("span");
