@@ -10,7 +10,7 @@ Atualmente, o projeto está sendo executado **localmente**.
 
 ## 🖥️ Preview
 
-![Tela do sistema](img/tela)
+![Tela do sistema](img/tela.png)
 
 ## 🚀 Funcionalidades
 
