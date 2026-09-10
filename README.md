@@ -8,6 +8,10 @@ O sistema permite cadastrar atletas e visualizar os dados em uma tabela. Os regi
 
 Atualmente, o projeto está sendo executado **localmente**.
 
+## 🖥️ Preview
+
+![Tela do sistema](img/tela)
+
 ## 🚀 Funcionalidades
 
 - ✅ Cadastrar atletas
@@ -41,6 +45,8 @@ Atualmente, o projeto está sendo executado **localmente**.
 ## 📂 Estrutura do projeto
 
 ```text
+├── img/
+│   └── tela-cadastro.png
 ├── index.html
 ├── style.css
 ├── script.js
@@ -48,7 +54,6 @@ Atualmente, o projeto está sendo executado **localmente**.
 ├── package.json
 ├── package-lock.json
 ├── .gitignore
-└── .env
 ```
 
 ## ⚙️ Como executar o projeto
